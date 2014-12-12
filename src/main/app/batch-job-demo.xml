@@ -24,6 +24,7 @@ http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/cu
 				</enricher>
 				<flow-ref name="get-account-record" doc:name="Flow Reference"/>
 				<logger message="Account record payload: #[payload]" level="INFO" doc:name="Logger"/>
+				<!-- We may transform the record payload here and push it into a CSV file  -->
 			</batch:step>
 			<batch:step name="step-failures" accept-policy="ONLY_FAILURES">
 				<logger message="Failed record with user id:  #[recordVars['currentUser']]"  level="INFO" doc:name="Logger"/>
